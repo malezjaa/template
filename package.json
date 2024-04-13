@@ -1,0 +1,40 @@
+{
+  "name": "<name>",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "malezjaa/<name>",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
+    "lint:fix": "automd && eslint --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
+    "prepack": "bun build",
+    "release": "bun test && changelogen --release && npm publish && git push --follow-tags",
+    "test": "bun lint && bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.12",
+    "automd": "^0.3.7",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.57.0",
+    "eslint-config-unjs": "^0.2.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3",
+    "unbuild": "^2.0.0"
+  }
+}
