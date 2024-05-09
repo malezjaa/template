@@ -1,26 +1,19 @@
 {
-  "name": "<name>",
+  "name": "create-kurogashi",
   "version": "0.0.0",
   "description": "",
-  "repository": "malezjaa/<name>",
+  "repository": "kuro.js/create-kurogashi",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+  "bin": {
+    "create-kurogashi": "dist/index.js"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "ndst",
+    "build": "tsup",
     "lint": "eslint --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "automd && eslint --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "bun build",
@@ -29,12 +22,20 @@
   },
   "devDependencies": {
     "@types/bun": "^1.0.12",
+    "@types/fs-extra": "^11.0.4",
     "automd": "^0.3.7",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
     "eslint-config-unjs": "^0.2.1",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.3",
-    "ndst": "^0.0.7"
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "kurogashi": "0.0.7",
+    "pathe": "^1.1.2"
   }
 }
